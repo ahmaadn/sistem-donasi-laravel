@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('title')
-    About | Donation
+    Kita Donasi | Home
 @endsection
 
 @section('content')

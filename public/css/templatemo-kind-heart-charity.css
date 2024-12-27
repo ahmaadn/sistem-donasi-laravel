@@ -1107,6 +1107,12 @@ blockquote::before {
   border-color: var(--secondary-color);
 }
 
+textarea.form-control {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+}
+
 .custom-form label {
   margin-bottom: 10px;
 }
