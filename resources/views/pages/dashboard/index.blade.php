@@ -382,3 +382,7 @@ Kita Donasi | Dashboard
     </div>
 </div>
 @endsection
+
+@pushIf($message = Session::get('success'), 'scripts')
+    <script>toastr.success("{{ $message }}")</script>
+@endPushIf

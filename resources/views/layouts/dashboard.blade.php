@@ -35,9 +35,9 @@
         </div>
     </div>
 
-    @stack('prepend-script')
+    @stack('prepend-scripts')
     @include('includes.d-script')
-    @stack('script')
+    @stack('scripts')
 </body>
 
 </html>

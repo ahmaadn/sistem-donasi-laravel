@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 
 
@@ -51,12 +52,12 @@ class AuthController extends Controller
             'password' => 'required|min:6'
         ]);
 
-        $data = $request->only(['name', 'email', 'password']);
+        $data['name'] = $request->name;
+        $data['email'] = $request->email;
+        $data['password'] = Hash::make($request->password);
 
-        User::created($data);
+        User::create($data);
 
-        // $path_redirect = $request->query('redirect');
-
-        return redirect()->route('dashboard')->with('success', '');
+        return redirect()->route('dashboard.index')->with('success', 'Akun berhasil dibuat');
     }
 }

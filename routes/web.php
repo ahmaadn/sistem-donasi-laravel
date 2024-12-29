@@ -32,6 +32,6 @@ Route::post('/auth/login-proses', [AuthController::class, 'auth'])->name('auth.l
 Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
 Route::get('/auth/register', [AuthController::class, 'register'])->name('auth.register');
-Route::post('/auth/register-proses', [AuthController::class, 'register-proses'])->name('auth.register-proses');
+Route::post('/auth/register-proses', [AuthController::class, 'register_proses'])->name('auth.register-proses');
 
 Route::resource('dashboard', DashboardController::class);
