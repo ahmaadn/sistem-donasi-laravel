@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\DonateController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +24,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::resource('donate', DonateController::class);
+Route::resource('login', LoginController::class);
+Route::resource('register', RegisterController::class);

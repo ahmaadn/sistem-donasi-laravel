@@ -66,12 +66,13 @@
                     <a class="nav-link click-scroll" href="#top">Home</a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link click-scroll" href="#section_3">Causes</a>
-                </li>
 
                 <li class="nav-item">
                     <a class="nav-link click-scroll" href="#section_2">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="#section_3">Causes</a>
                 </li>
 
                 <li class="nav-item">

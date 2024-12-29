@@ -5,7 +5,7 @@ Kita Donasi | Home
 @endsection
 
 @section('content')
-<main>
+<main id="top">
     <section class="hero-section hero-section-full-height">
         <div class="container-fluid">
             <div class="row">
@@ -137,7 +137,7 @@ Kita Donasi | Home
     </section>
 
 
-    <section class="section-padding" id="section_3">
+    <section class="section-padding" id="section_1">
         <div class="container">
             <div class="row">
 
