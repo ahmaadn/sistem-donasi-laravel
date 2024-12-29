@@ -18,10 +18,11 @@
 <body>
     @yield('content')
 
-    @stack('prepend-script')
-    <script src='{{ asset("/js/jquery.min.js") }}'></script>
-    <script src='{{ asset("/assets/js/bootstrap.bundle.min.js") }}'></script>
-    @stack('script')
+    @stack('prepend-scripts')
+    <script src='{{ asset("js/jquery.min.js") }}'></script>
+    <script src='{{ asset("js/dashboard/bootstrap.bundle.min.js") }}'></script>
+    <script src='{{ asset("js/toastr.min.js") }}'></script>
+    @stack('scripts')
 </body>
 
 </html>

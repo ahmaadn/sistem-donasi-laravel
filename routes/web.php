@@ -25,6 +25,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::resource('donate', DonateController::class);
-Route::resource('login', LoginController::class);
+
+// Auth
+Route::get('/auth/login', [LoginController::class, 'index'])->name('login.index');
+Route::post('/auth/login-proses', [LoginController::class, 'auth'])->name('login.auth');
+Route::get('/auth/logout', [LoginController::class, 'logout'])->name('logout.auth');
+
 Route::resource('register', RegisterController::class);
 Route::resource('dashboard', DashboardController::class);

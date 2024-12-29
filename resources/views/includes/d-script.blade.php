@@ -5,3 +5,4 @@
 <script src='{{ asset("js/dashboard/apexcharts.min.js") }}'></script>
 <script src='{{ asset("js/dashboard/simplebar.js") }}'></script>
 <script src='{{ asset("js/dashboard/dashboard.js") }}'></script>
+<script src='{{ asset("js/toastr.min.js") }}'></script>
