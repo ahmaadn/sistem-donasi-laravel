@@ -16,11 +16,24 @@
 </head>
 
 <body>
-    @include('includes.d-header')
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+        data-sidebar-position="fixed" data-header-position="fixed">
+        <!-- Sidebar Start -->
+        @include('includes.d-sidebar')
+        <!--  Sidebar End -->
+        <!--  Main wrapper -->
+        <div class="body-wrapper">
+            <!--  Header Start -->
+            @include('includes.d-header')
+            <!--  Header End -->
+            <div class="container-fluid">
+                <!--  Row 1 -->
+                @yield("content")
 
-    @yield('content')
-
-    @include('includes.d-footer')
+                @include('includes.d-footer')
+            </div>
+        </div>
+    </div>
 
     @stack('prepend-script')
     @include('includes.d-script')

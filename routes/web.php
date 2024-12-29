@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DonateController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -26,3 +27,4 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::resource('donate', DonateController::class);
 Route::resource('login', LoginController::class);
 Route::resource('register', RegisterController::class);
+Route::resource('dashboard', DashboardController::class);

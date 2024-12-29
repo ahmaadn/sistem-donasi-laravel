@@ -16,10 +16,15 @@ Kita Donasi | Login
                 <div class="col-md-8 col-lg-6 col-xxl-3">
                     <div class="card mb-0">
                         <div class="card-body">
-                            <a href="{{ route('home') }}" class="text-nowrap logo-img text-center d-block py-3 w-100">
-                                <img src="{{ asset('assets/images/logos/dark-logo.svg')}}" width="180" alt="">
-                            </a>
-                            <p class="text-center">Kia Donasi</p>
+                            <div class="d-flex justify-content-center w-100">
+                                <a href="{{ route('home') }}" class="text-nowrap logo-img d-block py-3 ">
+                                    <img src="{{asset('images/logo.png') }}" width="80" alt="">
+                                    <span>
+                                        Kita Donasi
+                                        <small>Non-profit Organization</small>
+                                    </span>
+                                </a>
+                            </div>
                             <form>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Username</label>
@@ -34,7 +39,7 @@ Kita Donasi | Login
                                     In</a>
                                 <div class="d-flex align-items-center justify-content-center">
                                     <p class="fs-4 mb-0 fw-bold">New to Modernize?</p>
-                                    <a class="text-primary fw-bold ms-2" href="./authentication-register.html">Create an
+                                    <a class="text-primary fw-bold ms-2" href="{{ route('register.index')}}">Create an
                                         account</a>
                                 </div>
                             </form>
