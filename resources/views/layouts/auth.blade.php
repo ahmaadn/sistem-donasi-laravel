@@ -10,17 +10,13 @@
     <title>@yield('title')</title>
 
     @stack('prepend-style')
-    @include('dashboard.includes.style')
+    @include('includes.d-style')
     @stack('style')
 
 </head>
 
 <body>
-    @include('dashboard.includes.header')
-
     @yield('content')
-
-    @include('dashboard.includes.footer')
 
     @stack('prepend-script')
     <script src='{{ asset("/js/jquery.min.js") }}'></script>

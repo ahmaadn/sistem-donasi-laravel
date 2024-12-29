@@ -10,20 +10,20 @@
     <title>@yield('title')</title>
 
     @stack('prepend-style')
-    @include('dashboard.includes.style')
+    @include('includes.d-style')
     @stack('style')
 
 </head>
 
 <body>
-    @include('dashboard.includes.header')
+    @include('includes.d-header')
 
     @yield('content')
 
-    @include('dashboard.includes.footer')
+    @include('includes.d-footer')
 
     @stack('prepend-script')
-    @include('dashboard.includes.script')
+    @include('includes.d-script')
     @stack('script')
 </body>
 
