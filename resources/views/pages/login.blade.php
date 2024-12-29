@@ -25,7 +25,7 @@ Kita Donasi | Login
                                     </span>
                                 </a>
                             </div>
-                            <form action="{{ route('login.auth') }}" method="POST">
+                            <form action="{{ route('auth.login-proses') }}" method="POST">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Username</label>
@@ -51,7 +51,7 @@ Kita Donasi | Login
                                 </button>
                                 <div class="d-flex align-items-center justify-content-center">
                                     <p class="fs-4 mb-0 fw-bold">New to Modernize?</p>
-                                    <a class="text-primary fw-bold ms-2" href="{{ route('register.index')}}">
+                                    <a class="text-primary fw-bold ms-2" href="{{ route('auth.register')}}">
                                         Create an account
                                     </a>
                                 </div>
