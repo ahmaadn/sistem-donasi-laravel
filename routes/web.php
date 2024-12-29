@@ -34,4 +34,13 @@ Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout
 Route::get('/auth/register', [AuthController::class, 'register'])->name('auth.register');
 Route::post('/auth/register-proses', [AuthController::class, 'register_proses'])->name('auth.register-proses');
 
-Route::resource('dashboard', DashboardController::class);
+// Admin
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'user-access:admin'], 'as' => 'admin.'], function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
+
+// User
+Route::group(['prefix' => 'user', 'middleware' => ['auth', 'user-access:user'], 'as' => 'user.'], function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
+
