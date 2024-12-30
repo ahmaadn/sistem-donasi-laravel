@@ -28,6 +28,7 @@
                         <span class="hide-menu">Dashboard</span>
                     </a>
                 </li>
+                @roles(['admin'])
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <span class="hide-menu">Kelola Donasi</span>
@@ -48,6 +49,7 @@
                         <span class="hide-menu">Doantur</span>
                     </a>
                 </li>
+                @endroles
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
                         <span>
