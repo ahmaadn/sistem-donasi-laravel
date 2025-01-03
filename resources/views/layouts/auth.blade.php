@@ -10,7 +10,7 @@
     <title>@yield('title')</title>
 
     @stack('prepend-style')
-    @include('includes.d-style')
+    @include('includes.dashboard.style')
     @stack('style')
 
 </head>
