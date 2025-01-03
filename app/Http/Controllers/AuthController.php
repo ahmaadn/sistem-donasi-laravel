@@ -62,6 +62,6 @@ class AuthController extends Controller
 
         User::create($data);
 
-        return redirect()->route('dashboard.index')->with('success', 'Akun berhasil dibuat');
+        return redirect()->route('user.dashboard')->with('success', 'Akun berhasil dibuat');
     }
 }
