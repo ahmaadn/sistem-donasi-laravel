@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DonateController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +38,10 @@ Route::post('/auth/register-proses', [AuthController::class, 'register_proses'])
 // Admin
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'user-access:admin'], 'as' => 'admin.'], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    // Manage User
+    Route::resource('manage-user', UserController::class);
+
 });
 
 // User
