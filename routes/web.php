@@ -27,25 +27,23 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::resource('donate', DonateController::class);
 
 // Auth
-Route::get('/auth/login', [AuthController::class, 'login'])->name('auth.login');
-Route::post('/auth/login-proses', [AuthController::class, 'auth'])->name('auth.login-proses');
+Route::group(['prefix' => 'auth', 'as' => 'auth.'], function () {
+    Route::get('login', [AuthController::class, 'login'])->name('login');
+    Route::post('login-proses', [AuthController::class, 'auth'])->name('login-proses');
 
-Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
+    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/auth/register', [AuthController::class, 'register'])->name('auth.register');
-Route::post('/auth/register-proses', [AuthController::class, 'register_proses'])->name('auth.register-proses');
-
-// Admin
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'user-access:admin'], 'as' => 'admin.'], function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
-    // Manage User
-    Route::resource('manage-user', UserController::class);
-
+    Route::get('register', [AuthController::class, 'register'])->name('register');
+    Route::post('register-proses', [AuthController::class, 'register_proses'])->name('register-proses');
 });
 
-// User
-Route::group(['prefix' => 'user', 'middleware' => ['auth', 'user-access:user'], 'as' => 'user.'], function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-});
 
+Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
+    Route::get('', [DashboardController::class, 'index'])->name('dashboard.index');
+
+    // Admin
+    Route::group(['middleware' => ['user-access:admin'], 'as' => 'admin.'], function () {
+        // Manage User
+        Route::resource('manage-user', UserController::class);
+    });
+});
