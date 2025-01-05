@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->decimal('goal', 15, 2);
             $table->decimal('collected', 15, 2)->default(0);
             $table->enum('status', ['open', 'closed'])->default('open');
-            $table->foreignId('created_by')->constrained('users')->onDelete('cascade');
+            $table->foreignId('created_by')->constrained('users');
             $table->timestamps();
         });
     }
