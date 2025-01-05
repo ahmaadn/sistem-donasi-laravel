@@ -6,6 +6,9 @@ Admin Dashboard | Manage USer
 
 
 @section('content')
+<div class="mb-6">
+    <a class="btn btn-success" href="{{route('admin.manage-user.create')}}"> Tambah User</a>
+</div>
 <div class="card ">
     <div class="card-body p-4">
         <h5 class="card-title fw-semibold mb-4">Table User</h5>

@@ -21,6 +21,30 @@ class UserController extends Controller
         return view('pages.manage-user.edit', ['user' => $user]);
     }
 
+    public function create(): View
+    {
+        return view('pages.manage-user.create');
+    }
+
+    public function store(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:8|confirmed',
+            'role' => 'required|in:user,admin', // Role harus 'user' atau 'admin'
+        ]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => $request->role,
+        ]);
+
+        return redirect()->route('admin.manage-user.index')->with('success', 'User added successfully.');
+    }
+
     public function update(Request $request, $id): RedirectResponse
     {
         $user = User::find($id);
