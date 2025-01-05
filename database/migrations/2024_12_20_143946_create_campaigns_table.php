@@ -12,6 +12,7 @@ return new class extends Migration {
     {
         Schema::create('campaigns', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('created_by');
             $table->string('title');
             $table->text('description');
             $table->string('image')->nullable();
@@ -19,7 +20,7 @@ return new class extends Migration {
             $table->decimal('goal', 15, 2);
             $table->decimal('collected', 15, 2)->default(0);
             $table->enum('status', ['open', 'closed'])->default('open');
-            $table->foreignId('created_by')->constrained('users')->onDelete('cascade');
+            $table->foreign('created_by')->references('id')->on('users');
             $table->timestamps();
         });
     }
