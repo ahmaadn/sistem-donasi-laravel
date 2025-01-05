@@ -175,8 +175,7 @@ Kita Donasi | Home
                                         </p>
                                     </div>
                                 </div>
-
-                                <a href="donate.html" class="custom-btn btn">Donate now</a>
+                                <a href="{{route('donate.index')}}" class="custom-btn btn">Donate now</a>
                             </div>
                         </div>
                     </div>

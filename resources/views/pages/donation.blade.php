@@ -78,10 +78,15 @@ Kita Donasi | Donation
                                         Paypal
                                     </label>
                                 </div>
-
-                                <button type="submit" class="form-control mt-4">
-                                    Submit Donation
-                                </button>
+                                @if (Auth()->check())
+                                    <button type="submit" class="form-control mt-4">
+                                        Submit Donation
+                                    </button>
+                                @else
+                                    <a type="button" href="{{route('auth.login')}}" class="form-control mt-4">
+                                        Submit Donation
+                                    </a>
+                                @endif
                             </div>
                         </div>
                     </form>
