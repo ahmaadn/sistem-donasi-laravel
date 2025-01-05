@@ -70,3 +70,11 @@ Admin Dashboard | Manage USer
     </div>
 </div>
 @endsection
+
+@pushIf($message = Session::get('failed'), 'scripts')
+    <script>toastr.error("{{ $message }}")</script>
+@endPushIf
+
+@pushIf($message = Session::get('success'), 'scripts')
+    <script>toastr.success("{{ $message }}")</script>
+@endPushIf
