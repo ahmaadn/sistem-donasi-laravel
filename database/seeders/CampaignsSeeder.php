@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Campaign;
 use Carbon\Carbon;
-use Faker\Core\DateTime;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
