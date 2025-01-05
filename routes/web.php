@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CampaignsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DonateController;
 use App\Http\Controllers\HomeController;
@@ -50,5 +51,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
     Route::group(['middleware' => ['user-access:admin'], 'as' => 'admin.'], function () {
         // Manage User
         Route::resource('manage-user', UserController::class);
+
+        Route::resource('manage-campaigns', CampaignsController::class);
     });
 });

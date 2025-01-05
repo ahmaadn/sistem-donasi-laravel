@@ -11,7 +11,7 @@
 
     @stack('prepend-style')
     @include('includes.dashboard.style')
-    @stack('style')
+    @stack('styles')
 
 </head>
 
