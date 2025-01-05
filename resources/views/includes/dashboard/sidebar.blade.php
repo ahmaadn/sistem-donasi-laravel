@@ -28,25 +28,17 @@
                         <span class="hide-menu">Dashboard</span>
                     </a>
                 </li>
-                @roles(['admin'])
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <span class="hide-menu">Kelola Donasi</span>
                 </li>
+                @roles(['admin'])
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
                         <span>
                             <i class="ti ti-article"></i>
                         </span>
                         <span class="hide-menu">Kampanye</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
-                        <span>
-                            <i class="ti ti-alert-circle"></i>
-                        </span>
-                        <span class="hide-menu">Doantur</span>
                     </a>
                 </li>
                 @endroles
@@ -58,6 +50,28 @@
                         <span class="hide-menu">Transaksi</span>
                     </a>
                 </li>
+                @roles(['admin'])
+                <li class="nav-small-cap">
+                    <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                    <span class="hide-menu">Kelola User</span>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-article"></i>
+                        </span>
+                        <span class="hide-menu">Daftar User</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-article"></i>
+                        </span>
+                        <span class="hide-menu">Tambah User</span>
+                    </a>
+                </li>
+                @endroles
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <span class="hide-menu">Profile</span>
