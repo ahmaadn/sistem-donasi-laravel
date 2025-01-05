@@ -56,7 +56,7 @@
                     <span class="hide-menu">Kelola User</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
+                    <a class="sidebar-link" href="{{route('admin.manage-user.index')}}" aria-expanded="false">
                         <span>
                             <i class="ti ti-article"></i>
                         </span>
@@ -64,7 +64,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
+                    <a class="sidebar-link" href="{{route('admin.manage-user.create')}}" aria-expanded="false">
                         <span>
                             <i class="ti ti-article"></i>
                         </span>
