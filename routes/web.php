@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DonateController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,7 @@ Route::group(['prefix' => 'auth', 'as' => 'auth.'], function () {
     Route::get('login', [AuthController::class, 'login'])->name('login');
     Route::post('login-proses', [AuthController::class, 'auth'])->name('login-proses');
 
+
     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::get('register', [AuthController::class, 'register'])->name('register');
@@ -40,6 +42,9 @@ Route::group(['prefix' => 'auth', 'as' => 'auth.'], function () {
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
     Route::get('', [DashboardController::class, 'index'])->name('dashboard.index');
+
+    Route::get('/profile', [ProfileController::class, 'index'])->name('dashboard.profile');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('dashboard.update-profile');
 
     // Admin
     Route::group(['middleware' => ['user-access:admin'], 'as' => 'admin.'], function () {
