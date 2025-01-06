@@ -26,7 +26,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::resource('donate', DonateController::class);
+// Route::resource('donate', DonateController::class);
+Route::get('/donate', [DonateController::class, 'index'])->name('donate.index');
 
 // Auth
 Route::group(['prefix' => 'auth', 'as' => 'auth.'], function () {
@@ -54,4 +55,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
 
         Route::resource('manage-campaigns', CampaignsController::class);
     });
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::post('/donate-proses', [DonateController::class, 'store'])->name('donate.store');
 });

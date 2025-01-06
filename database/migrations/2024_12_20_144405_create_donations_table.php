@@ -12,11 +12,13 @@ return new class extends Migration {
     {
         Schema::create('donations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->foreignId('campaign_id')->constrained('campaigns')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('campaign_id');
             $table->decimal('amount', 15, 2);
             $table->string('message')->nullable();
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('campaign_id')->references('id')->on('campaigns');
         });
     }
 

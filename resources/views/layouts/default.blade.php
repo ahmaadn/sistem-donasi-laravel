@@ -20,9 +20,9 @@
 
     @include('includes.footer')
 
-    @stack('prepend-script')
+    @stack('prepend-scripts')
     @include('includes.script')
-    @stack('script')
+    @stack('scripts')
 </body>
 
 </html>

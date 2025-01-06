@@ -1,3 +1,4 @@
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/bootstrap-icons.css" rel="stylesheet">
-<link href="css/main.css" rel="stylesheet">
+<link rel="stylesheet" href='{{asset("css/bootstrap.min.css")}}'>
+<link rel="stylesheet" href='{{asset("css/bootstrap-icons.css")}}'>
+<link rel="stylesheet" href='{{asset("css/main.css")}}'>
+<link rel="stylesheet" href="{{asset('css/toastr.css') }}" />
