@@ -10,6 +10,6 @@ class HomeController extends Controller
 {
     public function index(): View
     {
-        return view('pages.home', ['campaigns' => Campaign::all()]);
+        return view('pages.home', ['campaigns' => Campaign::where('status', 'open')->get()]);
     }
 }

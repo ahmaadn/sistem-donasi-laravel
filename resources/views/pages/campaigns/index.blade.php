@@ -27,6 +27,12 @@ Admin Dashboard | Campaigns
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
+                        <span @class([
+            'badge rounded-3 fw-semibold mb-3',
+            'bg-warning' => $campaign->status != 'open',
+            'bg-success' => $campaign->status == 'open'
+        ])>{{$campaign->status}}
+                        </span>
                         <h5 class="card-title">{{$campaign->title}}</h5>
                         <p class="card-text">{{$campaign->description}}</p>
 
