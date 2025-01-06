@@ -16,7 +16,7 @@ Admin Dashboard | Campaigns
 
 @section('content')
 <div class="mb-3">
-    <a class="btn btn-success">Tambah Campaigns</a>
+    <a href="{{route('admin.manage-campaigns.create')}}" class="btn btn-success">Tambah Campaigns</a>
 </div>
 <div>
     @foreach ($campaigns as $campaign)
@@ -93,5 +93,12 @@ Admin Dashboard | Campaigns
             form.action = `/dashboard/manage-campaigns/${id}`
         }
     </script>
-
 @endpush
+
+@pushIf($message = Session::get('failed'), 'scripts')
+    <script>toastr.error("{{ $message }}")</script>
+@endPushIf
+
+@pushIf($message = Session::get('success'), 'scripts')
+    <script>toastr.success("{{ $message }}")</script>
+@endPushIf
