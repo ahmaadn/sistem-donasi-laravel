@@ -55,7 +55,7 @@ Admin Dashboard | Campaigns
                             data-bs-target="#deleteFromModal" onclick="onClickDelete('{{$campaign->id}}')">
                             Delete
                         </button>
-                        <a class=" btn btn-warning me-3">
+                        <a href="{{route('admin.manage-campaigns.edit', $campaign->id)}}" class=" btn btn-warning me-3">
                             Edit
                         </a>
                     </div>

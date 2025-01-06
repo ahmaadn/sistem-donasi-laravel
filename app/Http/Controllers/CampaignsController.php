@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Campaign;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 
 class CampaignsController extends Controller
@@ -17,6 +18,46 @@ class CampaignsController extends Controller
     public function create(): View
     {
         return view('pages.campaigns.create');
+    }
+
+    public function edit($id): View
+    {
+        $campaign = Campaign::findOrFail($id);
+        return view('pages.campaigns.edit', ['campaign' => $campaign]);
+    }
+
+    public function update(Request $request, $id): RedirectResponse
+    {
+        $campaign = Campaign::findOrFail($id);
+
+        $request->validate([
+            'title' => 'string|max:255',
+            'description' => 'string',
+            'deadline' => 'date|after:today',
+            'goal' => 'numeric|min:1',
+            'status' => 'in:open,closed',
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $campaign->title = $request->title ?? $campaign->title;
+        $campaign->description = $request->description ?? $campaign->description;
+        $campaign->deadline = $request->deadline ?? $campaign->deadline;
+        $campaign->goal = $request->goal ?? $campaign->goal;
+        $campaign->status = $request->status ?? $campaign->status;
+
+        if ($request->hasFile('image')) {
+            // Hapus gambar lama jika ada
+            if ($campaign->image) {
+                $oldImagePath = str_replace(asset('storage/'), '', $campaign->image); // Path relatif gambar lama
+                Storage::disk('public')->delete($oldImagePath);
+            }
+
+            $newImagePath = $request->file('image')->store('campaigns', 'public');
+            $campaign->image = asset('storage/' . $newImagePath);
+        }
+
+        $campaign->save();
+        return redirect()->route('admin.manage-campaigns.index')->with('success', 'Campaign updated successfully.');
     }
 
     public function store(Request $request): RedirectResponse
