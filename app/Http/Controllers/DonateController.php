@@ -13,7 +13,7 @@ class DonateController extends Controller
     public function index(): View
     {
         $campaigns = Campaign::where('status', 'open')->get();
-        return view('pages.donation', ['campaigns' => $campaigns]);
+        return view('pages.donations.index', ['campaigns' => $campaigns]);
     }
 
     public function store(Request $request)
@@ -40,8 +40,9 @@ class DonateController extends Controller
         return redirect()->route('donate.index')->with('success', 'Donasi telah berhasil');
     }
 
-    public function show(): View
+    public function list(): View
     {
-        return view('pages.donation');
+        $donations = Donate::where('user_id', auth()->user()->id)->get();
+        return view('pages.donations.list', ['donations' => $donations]);
     }
 }

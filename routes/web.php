@@ -48,6 +48,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
     Route::get('/profile', [ProfileController::class, 'index'])->name('dashboard.profile');
     Route::put('/profile', [ProfileController::class, 'update'])->name('dashboard.update-profile');
 
+    Route::get('/history', [DonateController::class, 'list'])->name('donate.history');
+
     // Admin
     Route::group(['middleware' => ['user-access:admin'], 'as' => 'admin.'], function () {
         // Manage User
