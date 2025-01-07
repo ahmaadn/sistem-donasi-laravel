@@ -37,6 +37,11 @@ class DonateController extends Controller
             'campaign_id' => $campaign->id,
             'user_id' => auth()->user()->id
         ]);
+        $campaign->collected = $request->amount;
+        if ($campaign->collected >= $campaign->goal) {
+            $campaign->status = 'closed';
+        }
+        $campaign->save();
         return redirect()->route('donate.index')->with('success', 'Donasi telah berhasil');
     }
 
